@@ -9,7 +9,6 @@ const listContacts = async (req, res) => {
 
 const getContactById = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const result = await Contact.findByIdAndRemove(id);
   if (!result) {
     throw new Error("Not found");
