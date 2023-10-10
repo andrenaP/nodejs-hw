@@ -4,7 +4,7 @@ const handleMongooseError = require("../middlewares/handleMongooseError");
 const Schema = mongoose.Schema;
 
 const nameRegExp = "^[A-Za-zА-Яа-я]+( [A-Za-zА-Яа-я]+)?$";
-const phoneRegExp = "^\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$";
+const phoneRegExp = "^[0-9-+]{9,15}$";
 
 const ContactSchema = new Schema(
   {
