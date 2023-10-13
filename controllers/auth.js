@@ -47,11 +47,11 @@ const login = async (req, res) => {
 };
 
 const getCurrent = async (req, res) => {
-  const { email } = req.user;
+  const { email, subscription } = req.user;
 
   res.json({
-    email: newUser.email,
-    subscription: newUser.subscription,
+    email: email,
+    subscription: subscription,
   });
 };
 
@@ -59,7 +59,7 @@ const logout = async (req, res) => {
   const { _id } = req.user;
   await User.findByIdAndUpdate(_id, { token: "" });
 
-  res.status(204);
+  res.status(204).json({});
 };
 
 module.exports = {
