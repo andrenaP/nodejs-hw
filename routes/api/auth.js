@@ -9,6 +9,7 @@ const {
 const {
   registerSchema,
   loginSchema,
+  emailSchema,
 } = require("../../utils/validation/userValidation");
 const contr = require("../../controllers/auth");
 
@@ -25,4 +26,6 @@ router.patch(
   upload.single("avatar"),
   contr.updateAvatar
 );
+router.post("/verify", validateBody(emailSchema), contr.resendVerifyEmail);
+router.get("/verify/:verificationCode", contr.verifyEmail);
 module.exports = router;
